@@ -1,0 +1,51 @@
+//Prints usernames and passwords to text file
+
+#include<stdio.h>
+#include<stdlib.h>
+
+/*char loginInfo[][]{
+	
+}*/
+
+
+char Admin(){
+	
+	FILE *userinfo;
+	
+	userinfo = fopen("adminPass.txt","w");
+	
+	if(userinfo == NULL){
+		printf("An unexpected error has occured!");
+		printf("Reset program and try again");
+		exit(1);
+	}
+	
+	//system("@cls||clear");
+		
+	char username [15];
+	char password [15];
+	char newUser;
+	printf("\n\n\tAdmin Assginment\n\n");
+	printf("Please enter a new username: ");
+	scanf("%s",& username);
+	printf("Please enter password for this user: ");
+	scanf("%s",& password);
+	
+	newUser = loginInfo(username,password);
+	
+	fprintf(userinfo);
+	fclose(userinfo);
+	
+	userinfo = fopen("adminPass.txt","r");
+	if(userinfo == NULL){
+		printf("An unexpected error has occured!");
+		printf("Please reset everything and try again!!!");
+		exit(1);
+}
+
+	char currentString[100];
+	fscanf(userinfo,"%[^\n}",currentString);
+	fclose(userinfo);
+	printf("%s", currentString);
+
+}
